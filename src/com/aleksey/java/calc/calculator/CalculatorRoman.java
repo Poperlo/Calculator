@@ -21,21 +21,19 @@ public class CalculatorRoman extends Calculator {
                 break;
             case SUBTRACT:
                 intResult = getValue1().intValue() - getValue2().intValue();
-                if (intResult < 1) {
-                    throw new IllegalStateException("Integer value is less than 1.");
-                }
                 break;
             case MULTIPLY:
                 intResult = getValue1().intValue() * getValue2().intValue();
                 break;
             case DIVIDE:
                 intResult = getValue1().intValue() / getValue2().intValue();
-                if (intResult == 0) {
-                    throw new IllegalStateException("Integer value is equal 0.");
-                }
                 break;
             default:
                 throw new IllegalStateException("Operator '" + getOperator().getSign() + "' not implemented.");
+        }
+
+        if (intResult < 1) {
+            throw new IllegalStateException("Integer value is less than 1.");
         }
 
         result = new RomanNumber(intResult);
